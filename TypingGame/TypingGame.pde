@@ -59,7 +59,7 @@ void draw()
 void keyPressed()
 {  
   //check input and cursor position. if input and position matches the object, then make it dissapear. Increase cursor posiiton by 1.
-  if(key == theLetters.get(cursorPos).letter)
+  if(key == theLetters.get(cursorPos).upperLetter || key == theLetters.get(cursorPos).lowerLetter)
   {
     //theLetters.remove(cursorPos);
     theLetters.get(cursorPos).isActive = true;
@@ -101,7 +101,120 @@ void setupWord()
   for(int x = 0; x < tempString.length(); x++)
   {
     //get specific letter
-    char temp = tempString.charAt(x);
-    theLetters.add(new Letter(temp, (80 * x) + 10, 420, x));
+    char upper = tempString.charAt(x);
+    char lower = getLower(upper);
+    theLetters.add(new Letter(upper, lower, (80 * x) + 10, 420, x));
+  }
+}
+
+char getLower(char x)
+{
+  if(x == 'A')
+  {
+    return 'a';
+  }
+  else if(x == 'B')
+  {
+    return 'b';
+  }
+  else if(x == 'C')
+  {
+    return 'c';
+  }
+  else if(x == 'D')
+  {
+    return 'd';
+  }
+  else if(x == 'E')
+  {
+    return 'e';
+  }
+  else if(x == 'F')
+  {
+    return 'f';
+  }
+  else if(x == 'G')
+  {
+    return 'g';
+  }
+  else if(x == 'H')
+  {
+    return 'h';
+  }
+  else if(x == 'I')
+  {
+    return 'i';
+  }
+  else if(x == 'J')
+  {
+    return 'j';
+  }
+  else if(x == 'K')
+  {
+    return 'k';
+  }
+  else if(x == 'L')
+  {
+    return 'l';
+  }
+  else if(x == 'M')
+  {
+    return 'm';
+  }
+  else if(x == 'N')
+  {
+    return 'n';
+  }
+  else if(x == 'O')
+  {
+    return 'o';
+  }
+  else if(x == 'P')
+  {
+    return 'p';
+  }
+  else if(x == 'Q')
+  {
+    return 'q';
+  }
+  else if(x == 'R')
+  {
+    return 'r';
+  }
+  else if(x == 'S')
+  {
+    return 's';
+  }
+  else if(x == 'T')
+  {
+    return 't';
+  }
+  else if(x == 'U')
+  {
+    return 'u';
+  }
+  else if(x == 'V')
+  {
+    return 'v';
+  }
+  else if(x == 'W')
+  {
+    return 'w';
+  }
+  else if(x == 'X')
+  {
+    return 'x';
+  }
+  else if(x == 'Y')
+  {
+    return 'y';
+  }
+  else if(x == 'Z')
+  {
+    return 'z';
+  }
+  else
+  {
+    return ' ';
   }
 }

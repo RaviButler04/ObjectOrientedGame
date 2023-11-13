@@ -1,7 +1,8 @@
 class Letter
 {
   //variable to hold the letter of this object
-  char letter;
+  char upperLetter;
+  char lowerLetter;
   //variables to hold position of letter on screen
   int xPos;
   int yPos;
@@ -10,9 +11,10 @@ class Letter
   //int to hold the position of this letter in the word
   int position;
   
-  Letter(char z, int x, int y, int pos)
+  Letter(char z, char z2, int x, int y, int pos)
   {
-    letter = z;
+    upperLetter = z;
+    lowerLetter = z2;
     xPos = x;
     yPos = y;
     position = pos;
@@ -25,7 +27,7 @@ class Letter
       //draw letter at x and y positions using the letter variable and text()
       fill(255);
       textSize(120);
-      text(letter, xPos, yPos);
+      text(upperLetter, xPos, yPos);
     }
     if(isActive == true)
     {
