@@ -1,3 +1,5 @@
+//MILESTONE 1 COMPLETE
+
 
 //create arrayList to hold "letter objects"
 ArrayList<Letter> theLetters;
