@@ -4,10 +4,6 @@ class Letter
   char upperLetter;
   char lowerLetter;
   
-  //variables to hold position of letter on screen
-  //int xPos;
-  //int yPos;
-  
   //boolean to check if letter has been typed yet
   boolean isActive = false;
   
@@ -15,16 +11,19 @@ class Letter
   int position;
   
   //PVectors for Physics
+  //PVector for x and y coordinates
   PVector screenPosition;
+  
+  //PVector for velocity
   PVector velocity;
+  
+  //PVector for acceleration
   PVector acceleration;
   
   Letter(char z, char z2, int x, int y, int pos)
   {
     upperLetter = z;
     lowerLetter = z2;
-    //xPos = x;
-    //yPos = y;
     position = pos;
     
     //physics shenanigans
