@@ -23,10 +23,19 @@ color barColour;
 //int for barColour loop
 int c = 0;
 
+//int for tracking score
+int score = -1;
+
+//int for frameRate - this is for speed of timer
+int frameSpeed = 60;
+
+//int to hold game speed being drawn to screen
+int gameSpeed = 1;
+
 void setup()
 {
   //set framerate
-  frameRate(60);
+  frameRate(frameSpeed);
   
   //set size of window
   size(800,800);
@@ -52,8 +61,18 @@ void setup()
 
 void draw()
 {
+  //set framerate
+  frameRate(frameSpeed);
+  
   //make background black
   background(0);
+  
+  //draw score
+  textSize(50);
+  text("SCORE: " + score,5,50);
+  
+  //draw game speed
+  text("SPEED: " + gameSpeed,5,100);
   
   //decrease timer
   timer --;
@@ -67,7 +86,7 @@ void draw()
   //draw timer bar
   rectMode(CENTER);  
   fill(barColour);
-  rect(400,150,timer*3,50);
+  rect(400,175,timer*3,50);
   
   //check if timer is at zero
   if(timer == 0)
@@ -118,6 +137,16 @@ void setupWord()
   
   //reset cursor
   cursorPos = 0;
+  
+  //check if score is a multiple of 5. if so, increase timer speed by 15 - for some reason this is only working if I set these to the number before
+  if(score == 4 || score == 9 || score == 14 || score == 19 || score == 24 || score == 29 || score == 34 || score == 39 || score == 44 || score == 49)
+  {
+    frameSpeed += 10;
+    gameSpeed ++;
+  }
+  
+  //increase score
+  score ++;
   
   //reset timer
   timer = timerLength;
