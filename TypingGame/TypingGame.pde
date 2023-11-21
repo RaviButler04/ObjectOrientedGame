@@ -3,13 +3,25 @@
 ArrayList<Letter> theLetters;
 
 //create array for words
-String[] words = new String[10];
+String[] words = new String[11];
 
 //int to hold cursor posiiton in word
 int cursorPos = 0;
 
+//int to hold length of timer
+int timerLength = 225;
+
+//int to hold timer
+int timer = timerLength;
+
 //boolean to check if word has been completed
 boolean wordCompleted = false;
+
+//colour variable for bar
+color barColour;
+
+//int for barColour loop
+int c = 0;
 
 void setup()
 {
@@ -32,6 +44,7 @@ void setup()
   words[7] = "GADGETEERS";
   words[8] = "HABERGEONS";
   words[9] = "IBUPROFENS";
+  words[10] = "RAGAMUFFIN";
   
   //setup initial word
   setupWord();
@@ -41,6 +54,26 @@ void draw()
 {
   //make background black
   background(0);
+  
+  //decrease timer
+  timer --;
+  
+  //change colour of bar
+  barColour = color(0+c*1.5,255-c*1.5,0);
+  
+  //increment bar loop
+  c++;
+  
+  //draw timer bar
+  rectMode(CENTER);  
+  fill(barColour);
+  rect(400,150,timer*3,50);
+  
+  //check if timer is at zero
+  if(timer == 0)
+  {
+    exit();
+  }
     
   //show letters
   for(int x = 0; x < theLetters.size(); x++)
@@ -69,6 +102,7 @@ void keyPressed()
     {
       cursorPos ++;
     }
+    //check if word is completed
     else if(cursorPos == theLetters.size()-1)
     {
       wordCompleted = true;
@@ -84,6 +118,12 @@ void setupWord()
   
   //reset cursor
   cursorPos = 0;
+  
+  //reset timer
+  timer = timerLength;
+  
+  //reset barColour
+  c = 0;
   
   //remove all objects from arrayList
   for(int x = 0; x < theLetters.size(); x++)
