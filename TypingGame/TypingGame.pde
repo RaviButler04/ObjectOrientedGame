@@ -5,7 +5,7 @@
 ArrayList<Letter> theLetters;
 
 //create array for words
-String[] words = new String[11];
+String[] words = new String[22];
 
 //int to hold cursor posiiton in word
 int cursorPos = 0;
@@ -34,6 +34,9 @@ int frameSpeed = 60;
 //int to hold game speed being drawn to screen
 int gameSpeed = 1;
 
+//boolean to check if main game is playing
+boolean isPlaying = true;
+
 void setup()
 {
   //set framerate
@@ -55,7 +58,19 @@ void setup()
   words[7] = "GADGETEERS";
   words[8] = "HABERGEONS";
   words[9] = "IBUPROFENS";
-  words[10] = "RAGAMUFFIN";
+  words[10] = "DAFFODILLY";
+  words[11] = "EAGLESTONE";
+  words[12] = "HABITATION";
+  words[13] = "IDEALISTIC";
+  words[14] = "JAILHOUSES";
+  words[15] = "KEYSTROKES";
+  words[16] = "LACKLUSTER";
+  words[17] = "MACARONIES";
+  words[18] = "NANOROBOTS";
+  words[19] = "OBEDIENTLY";
+  words[20] = "PAINTBRUSH";
+  words[21] = "RAGAMUFFIN";
+  
   
   //setup initial word
   setupWord();
@@ -69,44 +84,24 @@ void draw()
   //make background black
   background(0);
   
-  //draw score
-  textSize(50);
-  text("SCORE: " + score,5,50);
-  
-  //draw game speed
-  text("SPEED: " + gameSpeed,5,100);
-  
-  //decrease timer
-  timer --;
-  
-  //change colour of bar
-  barColour = color(0+c*1.5,255-c*1.5,0);
-  
-  //increment bar loop
-  c++;
-  
-  //draw timer bar
-  rectMode(CENTER);  
-  fill(barColour);
-  rect(400,175,timer*3,50);
-  
-  //check if timer is at zero
-  if(timer == 0)
+  //make background pattern
+  for(int x = 0; x <= 80; x++)
   {
-    exit();
+    for(int i = 0; i <= 80; i++)
+    {
+      stroke(0);
+      fill(11);
+      rect(x*30,i*30,25,25);
+    }
   }
-    
-  //show letters
-  for(int x = 0; x < theLetters.size(); x++)
+  //logic for game over screen, start screen, and main game
+  if(isPlaying == true)
   {
-    theLetters.get(x).show();
+    gameInPlay();
   }
-  //println(cursorPos);
-  //println(theLetters.get(cursorPos).letter);
-  
-  if(wordCompleted == true)
+  if(isPlaying == false)
   {
-    setupWord();
+    gameOver();
   }
 }
 
@@ -132,6 +127,7 @@ void keyPressed()
   }  
 }
 
+//reset word
 void setupWord()
 {
   //reset boolean
@@ -176,6 +172,110 @@ void setupWord()
     char lower = getLower(upper);
     theLetters.add(new Letter(upper, lower, (80 * x) + 10, 420, x));
   }
+}
+
+//main gameplay loop
+void gameInPlay()
+{
+  //draw score
+  textSize(50);
+  fill(255);
+  stroke(0);
+  text("SCORE: " + score,5,50);
+  
+  //draw game speed
+  text("SPEED: " + gameSpeed,5,100);
+  
+  //decrease timer
+  timer --;
+  
+  //change colour of bar
+  barColour = color(0+c*1.5,255-c*1.5,0);
+  
+  //increment bar loop
+  c++;
+  
+  //draw timer bar
+  rectMode(CENTER);  
+  fill(barColour);
+  stroke(0);
+  rect(400,175,timer*3,50);
+  
+  //check if timer is at zero
+  if(timer == 0)
+  {
+    isPlaying = false;
+  }
+    
+  //show letters
+  for(int x = 0; x < theLetters.size(); x++)
+  {
+    theLetters.get(x).show();
+  }
+  //println(cursorPos);
+  //println(theLetters.get(cursorPos).letter);
+  
+  if(wordCompleted == true)
+  {
+    setupWord();
+  }
+}
+
+//game over screen
+void gameOver()
+{
+  //draw game over
+  textSize(120);
+  fill(255,0,0);
+  stroke(0);
+  text("GAME OVER :(", 60,400);
+  
+  //draw restart button
+  rectMode(CENTER);
+  fill(0);
+  stroke(255);
+  rect(400,600,400,60);
+  
+  //restert text
+  textSize(30);
+  fill(255);
+  text("RESTART",340,610);
+  
+  //mouse hover over restart
+  if(mouseX < 600 && mouseX > 200 && mouseY > 570 && mouseY < 630 )
+  {
+    //draw restart button
+    rectMode(CENTER);
+    fill(255);
+    stroke(255);
+    rect(400,600,400,60);
+    
+    //restert text
+    textSize(30);
+    fill(0);
+    text("RESTART",340,610);
+  }
+  
+  //restart game
+  if(mouseX < 600 && mouseX > 200 && mouseY > 570 && mouseY < 630 && mousePressed)
+  {
+    newGame();
+    isPlaying = true;
+  }
+}
+
+//start new game after losing
+void newGame()
+{
+  //reset score
+  score = -1;
+  
+  //reset game speed
+  gameSpeed = 1;
+  frameSpeed = 60;
+  
+  //reset word
+  setupWord();
 }
 
 char getLower(char x)
