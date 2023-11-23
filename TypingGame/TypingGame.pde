@@ -38,7 +38,7 @@ int gameSpeed = 1;
 boolean isPlaying = true;
 
 //string for gameStates
-String gameState = "play";
+String gameState = "start";
 
 void setup()
 {
@@ -89,7 +89,7 @@ void draw()
   {
     case "start":
     {
-      
+      startMenu();
     } break;
     
     case "play":
@@ -241,6 +241,17 @@ void gameOver()
   fill(255);
   text("RESTART",340,610);
   
+  //draw start menu button
+  rectMode(CENTER);
+  fill(0);
+  stroke(255);
+  rect(400,700,400,60);
+  
+  //start menu text
+  textSize(30);
+  fill(255);
+  text("MAIN MENU",325,710);
+  
   //mouse hover over restart
   if(mouseX < 600 && mouseX > 200 && mouseY > 570 && mouseY < 630 )
   {
@@ -256,6 +267,21 @@ void gameOver()
     text("RESTART",340,610);
   }
   
+  //mouse hover over menu
+  if(mouseX < 600 && mouseX > 200 && mouseY > 670 && mouseY < 730)
+  {
+    //draw start menu button
+  rectMode(CENTER);
+  fill(255);
+  stroke(255);
+  rect(400,700,400,60);
+  
+  //start menu text
+  textSize(30);
+  fill(0);
+  text("MAIN MENU",325,710);
+  }
+  
   //restart game
   if(mouseX < 600 && mouseX > 200 && mouseY > 570 && mouseY < 630 && mousePressed)
   {
@@ -263,6 +289,92 @@ void gameOver()
     newGame();
     //change game state back to in play
     gameState = "play";
+  }
+  
+  //go to main menu
+  if(mouseX < 600 && mouseX > 200 && mouseY > 670 && mouseY < 730 && mousePressed)
+  {
+    //setup for new game
+    newGame();
+    //change game state back to in play
+    gameState = "start";
+  }
+}
+
+//start screen
+void startMenu()
+{
+  //draw title
+  textSize(120);
+  fill(0,255,0);
+  stroke(0);
+  text("Typing Game!", 60,400);
+  
+  //draw start button
+  rectMode(CENTER);
+  fill(0);
+  stroke(255);
+  rect(400,600,400,60);
+  
+  //start text
+  textSize(30);
+  fill(255);
+  text("START",360,610);
+  
+  //draw exit button
+  rectMode(CENTER);
+  fill(0);
+  stroke(255);
+  rect(400,700,400,60);
+  
+  //start exit text
+  textSize(30);
+  fill(255);
+  text("EXIT",370,710);
+  
+  //mouse hover over start
+  if(mouseX < 600 && mouseX > 200 && mouseY > 570 && mouseY < 630 )
+  {
+    //draw start button
+    rectMode(CENTER);
+    fill(255);
+    stroke(255);
+    rect(400,600,400,60);
+    
+    //start text
+    textSize(30);
+    fill(0);
+    text("START",360,610);
+  }
+  
+  //mouse hover over exit
+  if(mouseX < 600 && mouseX > 200 && mouseY > 670 && mouseY < 730)
+  {
+    //draw start menu button
+  rectMode(CENTER);
+  fill(255);
+  stroke(255);
+  rect(400,700,400,60);
+  
+  //start menu text
+  textSize(30);
+  fill(0);
+  text("EXIT",370,710);
+  }
+  
+  //start game
+  if(mouseX < 600 && mouseX > 200 && mouseY > 570 && mouseY < 630 && mousePressed)
+  {
+    //setup for new game
+    newGame();
+    //change game state back to in play
+    gameState = "play";
+  }
+  
+  //exit game
+  if(mouseX < 600 && mouseX > 200 && mouseY > 670 && mouseY < 730 && mousePressed)
+  {
+    exit();
   }
 }
 
