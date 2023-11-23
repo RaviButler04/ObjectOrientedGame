@@ -100,7 +100,7 @@ void draw()
     case "over":
     {
       gameOver();
-    }
+    } break;
   }
 }
 
@@ -329,15 +329,15 @@ void startMenu()
   text("START",360,610);
   
   //draw exit button
-  //rectMode(CENTER);
-  //fill(0);
-  //stroke(255);
-  //rect(400,700,400,60);
+  rectMode(CENTER);
+  fill(0);
+  stroke(255);
+  rect(400,700,400,60);
   
-  ////start exit text
-  //textSize(30);
-  //fill(255);
-  //text("EXIT",370,710);
+  //start exit text
+  textSize(30);
+  fill(255);
+  text("EXIT",370,710);
   
   //mouse hover over start
   if(mouseX < 600 && mouseX > 200 && mouseY > 570 && mouseY < 630 )
@@ -355,19 +355,19 @@ void startMenu()
   }
   
   //mouse hover over exit
-  //if(mouseX < 600 && mouseX > 200 && mouseY > 670 && mouseY < 730)
-  //{
-  //  //draw start menu button
-  //rectMode(CENTER);
-  //fill(255);
-  //stroke(255);
-  //rect(400,700,400,60);
+  if(mouseX < 600 && mouseX > 200 && mouseY > 670 && mouseY < 730)
+  {
+    //draw start menu button
+  rectMode(CENTER);
+  fill(255);
+  stroke(255);
+  rect(400,700,400,60);
   
-  ////start menu text
-  //textSize(30);
-  //fill(0);
-  //text("EXIT",370,710);
-  //}
+  //start menu text
+  textSize(30);
+  fill(0);
+  text("EXIT",370,710);
+  }
   
   //start game
   if(mouseX < 600 && mouseX > 200 && mouseY > 570 && mouseY < 630 && mousePressed)
@@ -409,6 +409,7 @@ void drawBackground()
   {
     for(int i = 0; i <= 80; i++)
     {
+      //draw rows of squares
       stroke(0);
       fill(11);
       rect(x*30,i*30,25,25);
@@ -418,6 +419,7 @@ void drawBackground()
 
 void showLetter(Letter l)
 {
+  //show letter
   l.show();
 }
 
