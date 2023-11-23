@@ -225,6 +225,12 @@ void gameInPlay()
 //game over screen
 void gameOver()
 {
+  //draw score
+  textSize(50);
+  fill(255);
+  stroke(0);
+  text("YOUR SCORE: " + score,235,500);
+  
   //draw game over
   textSize(120);
   fill(255,0,0);
