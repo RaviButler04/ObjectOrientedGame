@@ -31,7 +31,7 @@ class Letter
     screenPosition = new PVector(x, y);
     //velocity using random 2d vector
     velocity = PVector.random2D();
-    //multiply velocity so there is some more energy to the falling letters
+    //multiply velocity so there is some more energy to the falling letters - unknown PVector method for skill 43
     velocity.mult(4);
     //acceleration
     acceleration = new PVector(0, 0.5);
