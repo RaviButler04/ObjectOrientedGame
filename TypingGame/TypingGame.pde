@@ -332,12 +332,12 @@ void startMenu()
   rectMode(CENTER);
   fill(0);
   stroke(255);
-  rect(400,700,400,60);
+  rect(700,50,150,60);
   
   //start exit text
   textSize(30);
   fill(255);
-  text("EXIT",370,710);
+  text("EXIT",675,60);
   
   //mouse hover over start
   if(mouseX < 600 && mouseX > 200 && mouseY > 570 && mouseY < 630 )
@@ -355,18 +355,18 @@ void startMenu()
   }
   
   //mouse hover over exit
-  if(mouseX < 600 && mouseX > 200 && mouseY > 670 && mouseY < 730)
+  if(mouseX < 775 && mouseX > 625 && mouseY > 20 && mouseY < 80)
   {
-    //draw start menu button
-  rectMode(CENTER);
-  fill(255);
-  stroke(255);
-  rect(400,700,400,60);
-  
-  //start menu text
-  textSize(30);
-  fill(0);
-  text("EXIT",370,710);
+    //draw exit button
+    rectMode(CENTER);
+    fill(255);
+    stroke(255);
+    rect(700,50,150,60);
+    
+    //start exit text
+    textSize(30);
+    fill(0);
+    text("EXIT",675,60);
   }
   
   //start game
@@ -379,10 +379,10 @@ void startMenu()
   }
   
   //exit game
-  //if(mouseX < 600 && mouseX > 200 && mouseY > 670 && mouseY < 730 && mousePressed)
-  //{
-  //  exit();
-  //}
+  if(mouseX < 775 && mouseX > 625 && mouseY > 20 && mouseY < 80 && mousePressed)
+  {
+    exit();
+  }
 }
 
 //start new game after losing
