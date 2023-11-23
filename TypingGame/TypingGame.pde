@@ -37,6 +37,9 @@ int gameSpeed = 1;
 //boolean to check if main game is playing
 boolean isPlaying = true;
 
+//string for gameStates
+String gameState = "play";
+
 void setup()
 {
   //set framerate
@@ -70,8 +73,7 @@ void setup()
   words[19] = "OBEDIENTLY";
   words[20] = "PAINTBRUSH";
   words[21] = "RAGAMUFFIN";
-  
-  
+    
   //setup initial word
   setupWord();
 }
@@ -81,27 +83,24 @@ void draw()
   //set framerate
   frameRate(frameSpeed);
   
-  //make background black
-  background(0);
+  drawBackground();
   
-  //make background pattern
-  for(int x = 0; x <= 80; x++)
+  switch(gameState)
   {
-    for(int i = 0; i <= 80; i++)
+    case "start":
     {
-      stroke(0);
-      fill(11);
-      rect(x*30,i*30,25,25);
+      
+    } break;
+    
+    case "play":
+    {
+      gameInPlay();
+    } break;
+    
+    case "over":
+    {
+      gameOver();
     }
-  }
-  //logic for game over screen, start screen, and main game
-  if(isPlaying == true)
-  {
-    gameInPlay();
-  }
-  if(isPlaying == false)
-  {
-    gameOver();
   }
 }
 
@@ -204,7 +203,8 @@ void gameInPlay()
   //check if timer is at zero
   if(timer == 0)
   {
-    isPlaying = false;
+    //set game state to game over
+    gameState = "over";
   }
     
   //show letters
@@ -259,8 +259,10 @@ void gameOver()
   //restart game
   if(mouseX < 600 && mouseX > 200 && mouseY > 570 && mouseY < 630 && mousePressed)
   {
+    //setup for new game
     newGame();
-    isPlaying = true;
+    //change game state back to in play
+    gameState = "play";
   }
 }
 
@@ -276,6 +278,23 @@ void newGame()
   
   //reset word
   setupWord();
+}
+
+void drawBackground()
+{
+  //make background black
+  background(0);
+  
+  //make background pattern
+  for(int x = 0; x <= 80; x++)
+  {
+    for(int i = 0; i <= 80; i++)
+    {
+      stroke(0);
+      fill(11);
+      rect(x*30,i*30,25,25);
+    }
+  }
 }
 
 char getLower(char x)
