@@ -27,8 +27,13 @@ class Letter
     position = pos;
     
     //physics shenanigans
+    //x and y position
     screenPosition = new PVector(x, y);
-    velocity = new PVector(random(-4, 4), random(-4, 4));
+    //velocity using random 2d vector
+    velocity = PVector.random2D();
+    //multiply velocity so there is some more energy to the falling letters
+    velocity.mult(4);
+    //acceleration
     acceleration = new PVector(0, 0.5);
   }
   
@@ -46,7 +51,7 @@ class Letter
       //draw letter at x and y positions using the letter variable and text()
       fill(0,255,0);
       textSize(120);
-      text(upperLetter, screenPosition.x, screenPosition.y);
+      text(upperLetter, constrain(screenPosition.x,0,800), screenPosition.y); //constrained the x value so that they don't fly off the sides of the screen
       
       //make em fall
       velocity.add(acceleration);

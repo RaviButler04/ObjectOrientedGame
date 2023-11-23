@@ -210,7 +210,8 @@ void gameInPlay()
   //show letters
   for(int x = 0; x < theLetters.size(); x++)
   {
-    theLetters.get(x).show();
+    //function that takes letter object and shows them
+    showLetter(theLetters.get(x));
   }
   //println(cursorPos);
   //println(theLetters.get(cursorPos).letter);
@@ -322,15 +323,15 @@ void startMenu()
   text("START",360,610);
   
   //draw exit button
-  rectMode(CENTER);
-  fill(0);
-  stroke(255);
-  rect(400,700,400,60);
+  //rectMode(CENTER);
+  //fill(0);
+  //stroke(255);
+  //rect(400,700,400,60);
   
-  //start exit text
-  textSize(30);
-  fill(255);
-  text("EXIT",370,710);
+  ////start exit text
+  //textSize(30);
+  //fill(255);
+  //text("EXIT",370,710);
   
   //mouse hover over start
   if(mouseX < 600 && mouseX > 200 && mouseY > 570 && mouseY < 630 )
@@ -348,19 +349,19 @@ void startMenu()
   }
   
   //mouse hover over exit
-  if(mouseX < 600 && mouseX > 200 && mouseY > 670 && mouseY < 730)
-  {
-    //draw start menu button
-  rectMode(CENTER);
-  fill(255);
-  stroke(255);
-  rect(400,700,400,60);
+  //if(mouseX < 600 && mouseX > 200 && mouseY > 670 && mouseY < 730)
+  //{
+  //  //draw start menu button
+  //rectMode(CENTER);
+  //fill(255);
+  //stroke(255);
+  //rect(400,700,400,60);
   
-  //start menu text
-  textSize(30);
-  fill(0);
-  text("EXIT",370,710);
-  }
+  ////start menu text
+  //textSize(30);
+  //fill(0);
+  //text("EXIT",370,710);
+  //}
   
   //start game
   if(mouseX < 600 && mouseX > 200 && mouseY > 570 && mouseY < 630 && mousePressed)
@@ -372,10 +373,10 @@ void startMenu()
   }
   
   //exit game
-  if(mouseX < 600 && mouseX > 200 && mouseY > 670 && mouseY < 730 && mousePressed)
-  {
-    exit();
-  }
+  //if(mouseX < 600 && mouseX > 200 && mouseY > 670 && mouseY < 730 && mousePressed)
+  //{
+  //  exit();
+  //}
 }
 
 //start new game after losing
@@ -407,6 +408,11 @@ void drawBackground()
       rect(x*30,i*30,25,25);
     }
   }
+}
+
+void showLetter(Letter l)
+{
+  l.show();
 }
 
 char getLower(char x)
