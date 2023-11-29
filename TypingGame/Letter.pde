@@ -20,6 +20,12 @@ class Letter
   //PVector for acceleration
   PVector acceleration;
   
+  //PVector point to draw letters towards it
+  PVector vortex;
+  
+  //PVector for direction from letter posiiton to vortex
+  PVector direction;
+  
   Letter(char z, char z2, int x, int y, int pos)
   {
     upperLetter = z;
@@ -35,6 +41,8 @@ class Letter
     velocity.mult(4);
     //acceleration
     acceleration = new PVector(0, 0.5);
+    //set "vortex" position
+    vortex = new PVector(400,800);
   }
   
   void show()
@@ -56,6 +64,21 @@ class Letter
       //make em fall
       velocity.add(acceleration);
       screenPosition.add(velocity);
+      
+      //get distance between the letter and the vortex
+      float tempDist = screenPosition.dist(vortex);
+      
+      //find direction between letter and vortex
+      direction = new PVector(vortex.x - screenPosition.x, vortex.y - screenPosition.y);
+      
+      //divide the direction 
+      direction.div(10);
+      
+      if(tempDist < 700 && screenPosition.y > 700)
+      {
+        //make the vortex draw in the letters by adding the direction to screen position
+        screenPosition.add(direction);
+      }      
     }
   }  
 }

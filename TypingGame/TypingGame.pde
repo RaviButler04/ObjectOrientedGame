@@ -5,7 +5,7 @@
 ArrayList<Letter> theLetters;
 
 //create array for words
-String[] words = new String[22];
+String[] words = new String[41];
 
 //int to hold cursor posiiton in word
 int cursorPos = 0;
@@ -73,6 +73,25 @@ void setup()
   words[19] = "OBEDIENTLY";
   words[20] = "PAINTBRUSH";
   words[21] = "RAGAMUFFIN";
+  words[22] = "UNSCRAMBLE";
+  words[23] = "TABLECLOTH";
+  words[24] = "ULTRASONIC";
+  words[25] = "VANDALIZED";
+  words[26] = "WALLFLOWER";
+  words[27] = "YARDSTICKS";
+  words[28] = "ZOOKEEPERS";
+  words[29] = "SALAMANDER";
+  words[30] = "RANDOMIZED";
+  words[31] = "QUARANTINE";
+  words[32] = "PANHANDLER";
+  words[33] = "OCCULTNESS";
+  words[34] = "BURGEONING";
+  words[35] = "NEGLIGENCE";
+  words[36] = "MANTICORES";
+  words[37] = "LIFEGUARDS";
+  words[38] = "KNIGHTHOOD";
+  words[39] = "JUBILATING";
+  words[40] = "ILLUMINATI";
     
   //setup initial word
   setupWord();
