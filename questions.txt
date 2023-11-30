@@ -1,0 +1,26 @@
+19. 
+Both For loops and While loops will check the statement within the brackets to see if it is true. The difference is that While loops allow for more flexibility, while For loops have a set structure and format. For loops are better used when you want to loop a specific amount of times. While loops are more useful for when you want to loop repeatedly until a specific condition is met. 
+
+22. 
+Parameters are the placeholder variables in a function’s brackets. Arguments are the actual variables or data that will replace those placeholder variables. These are used when a function needs specific data to complete its function. 
+
+25.
+A class is the blueprint for an object, and it defines what properties/variables the object will have and what actions it can perform. An object is an actual instance of the class, where its properties/variables have been filled in. Two objects of the same class will have the same actions but they might have a different colour, speed, position, etc.
+
+26.
+The constructor function is what “sets up” the object when it is created. It uses the arguments and parameters to fill in the object’s properties. 
+
+27. 
+Each class should have its own tab so that the program is easily navigable and readable. Having all the code in one tab can quickly become complicated and difficult to understand and navigate. It is also likely that you will need to frequently change code for a class. Having a dedicated tab makes it easy to switch over and find what you need quickly and efficiently. 
+
+31. 
+Arrays can hold variables as well as objects, while array lists can only hold objects. Array lists also have much more functionality than arrays, allowing you to easily add or remove elements from the list. With a standard array, it is much more difficult to grow or shrink the size of the array without running into errors. 
+
+32. 
+You would want to go through a list backwards if the array element you need is the last element in the list. Going through the array backwards may also prevent errors. If you go through the array forwards, then there is always the risk of an out of bounds error. Also, if you remove elements from the start of the list, that will displace all the other elements in the array. This can lead to problems when trying to target a specific element. 
+
+37. 
+You would want to use PVectors instead of float variables when you are dealing with more complex maths, specifically physics. They allow you to easily manipulate vectors with functions like add, subtract, and multiply. They also reduce the amount of variables in your code. For example, instead of having individual x and y position variables, you could store both of those in a single PVector. 
+
+42. 
+A normalized vector is a vector with a magnitude/length of 1. This is useful when you want to isolate a vector’s direction, and not its magnitude. This could be used to perform calculations on a vector’s direction without affecting it’s magnitude. 
