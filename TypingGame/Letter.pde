@@ -61,7 +61,7 @@ class Letter
       textSize(120);
       text(upperLetter, constrain(screenPosition.x,0,800), screenPosition.y); //constrained the x value so that they don't fly off the sides of the screen
       
-      //make em fall
+      //make letters fall
       velocity.add(acceleration);
       screenPosition.add(velocity);
       
@@ -71,7 +71,7 @@ class Letter
       //find direction between letter and vortex
       direction = new PVector(vortex.x - screenPosition.x, vortex.y - screenPosition.y);
       
-      //divide the direction 
+      //divide the direction so that letters don't immediately snap to the vortex position
       direction.div(10);
       
       if(tempDist < 700 && screenPosition.y > 700)

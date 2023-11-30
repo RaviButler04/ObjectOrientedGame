@@ -1,4 +1,4 @@
-//MILESTONE 1 COMPLETE
+//MILESTONE 2 COMPLETE
 
 
 //create arrayList to hold "letter objects"
@@ -104,18 +104,22 @@ void draw()
   
   drawBackground();
   
+  //game screen logic
   switch(gameState)
   {
+    //go to start menu
     case "start":
     {
       startMenu();
     } break;
     
+    //go to main game
     case "play":
     {
       gameInPlay();
     } break;
     
+    //go to game over
     case "over":
     {
       gameOver();
@@ -134,6 +138,7 @@ void keyPressed()
     //make sure cursorPos doesn't go past the arraylist length
     if(cursorPos < theLetters.size() - 1)
     {
+      //increment cursor
       cursorPos ++;
     }
     //check if word is completed
@@ -235,6 +240,7 @@ void gameInPlay()
   //println(cursorPos);
   //println(theLetters.get(cursorPos).letter);
   
+  //if word has been completed, set up a new word
   if(wordCompleted == true)
   {
     setupWord();
@@ -382,7 +388,7 @@ void startMenu()
     stroke(255);
     rect(700,50,150,60);
     
-    //start exit text
+    //draw exit text
     textSize(30);
     fill(0);
     text("EXIT",675,60);
@@ -442,6 +448,7 @@ void showLetter(Letter l)
   l.show();
 }
 
+//convert input to lower case to check against that as well
 char getLower(char x)
 {
   if(x == 'A')
